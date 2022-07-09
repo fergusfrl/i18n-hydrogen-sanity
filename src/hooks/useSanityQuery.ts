@@ -21,6 +21,7 @@ export default function useSanityQuery<T>({
   return useQuery<T>(
     JSON.stringify([query, params]),
     async () => {
+      console.log('STARTING QUERY...');
       const result = await client.fetch(query, params);
       console.log('RESULT:', result);
       return result;
