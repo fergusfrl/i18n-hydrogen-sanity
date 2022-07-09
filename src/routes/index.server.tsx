@@ -1,6 +1,7 @@
 import {
   Seo,
   ShopifyAnalyticsConstants,
+  HydrogenRouteProps,
   useServerAnalytics,
 } from '@shopify/hydrogen';
 import clsx from 'clsx';
@@ -13,7 +14,10 @@ import {HOME_PAGE} from '../fragments/sanity/pages/home';
 import useSanityQuery from '../hooks/useSanityQuery';
 import type {SanityHomePage} from '../types';
 
-export default function IndexRoute() {
+export default function IndexRoute({request, response}: HydrogenRouteProps) {
+  console.log('REQUEST:', request);
+  console.log('RESPONSE:', response);
+
   const {data: sanityHome} = useSanityQuery<SanityHomePage>({
     hydrogenQueryOptions: {preload: true},
     query: QUERY_SANITY,
