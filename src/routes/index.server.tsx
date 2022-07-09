@@ -19,6 +19,8 @@ export default function IndexRoute() {
     query: QUERY_SANITY,
   });
 
+  console.log('HOME_DATA:', sanityHome);
+
   // Shopify analytics
   useServerAnalytics({
     shopify: {pageType: ShopifyAnalyticsConstants.pageType.home},
