@@ -36,17 +36,40 @@ export default function CountrySelect({align = 'center'}: Props) {
     };
   }, [isoCode]);
 
-  const setCountry = useCallback((country: Country) => {
-    if (!country) {
-      return;
-    }
-    fetch(`/api/countries`, {
-      body: JSON.stringify({isoCode: country.isoCode, name: country.name}),
-      method: 'POST',
-    }).then(() => {
-      window.location.reload();
-    });
-  }, []);
+  const setCountry = useCallback<(country: Country) => void>(
+    (country) => {
+      if (!country) {
+        return;
+      }
+
+      const {isoCode: newIsoCode, name} = country;
+
+      fetch(`/api/countries`, {
+        body: JSON.stringify({isoCode: newIsoCode, name}),
+        method: 'POST',
+      }).then(() => {
+        const currentPath = window.location.pathname;
+        let redirectPath;
+
+        if (newIsoCode !== 'NZ') {
+          if (currentCountry.isoCode === 'NZ') {
+            redirectPath = `/${newIsoCode.toLowerCase()}${currentPath}`;
+          } else {
+            redirectPath = `/${newIsoCode.toLowerCase()}${currentPath.substring(
+              currentPath.indexOf('/', 1),
+            )}`;
+          }
+        } else {
+          redirectPath = `${currentPath.substring(
+            currentPath.indexOf('/', 1),
+          )}`;
+        }
+
+        window.location.href = redirectPath;
+      });
+    },
+    [currentCountry],
+  );
 
   if (!currentCountry) {
     return null;

@@ -1,11 +1,12 @@
 import {CookieSessionStorage, defineConfig} from '@shopify/hydrogen/config';
 
 export default defineConfig({
+  routes: '/src/routes/',
   shopify: {
-    defaultCountryCode: 'US',
+    defaultCountryCode: 'NZ',
     defaultLanguageCode: 'EN',
-    storeDomain: 'oxygenator.myshopify.com',
-    storefrontToken: '70faab4b482211c4167f94181a4ba4ed',
+    storeDomain: 'nz-single-speed.myshopify.com',
+    storefrontToken: '2da721fe103bdb0e7e98da37bb5812d0',
     storefrontApiVersion: '2022-07',
   },
   session: CookieSessionStorage('__session', {

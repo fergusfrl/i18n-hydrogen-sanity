@@ -6,3 +6,5 @@ export const DEFAULT_BUTTON_STYLES = clsx([
 ]);
 
 export const COLLECTION_PAGE_SIZE = 12;
+
+export const DEFAULT_ISO_CODE = 'NZ';
