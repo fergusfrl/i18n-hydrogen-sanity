@@ -32,6 +32,7 @@ type Props = {
     key?: string;
     reverse?: boolean;
   };
+  request: any;
 };
 
 type ShopifyPayload = {
@@ -49,6 +50,7 @@ export default function CollectionRoute({
   } = useLocalization();
 
   const {handle} = params;
+
   const {data} = useShopQuery<ShopifyPayload>({
     query: QUERY_SHOPIFY,
     variables: {
