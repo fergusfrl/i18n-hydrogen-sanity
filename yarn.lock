@@ -451,6 +451,21 @@
   dependencies:
     "@miniflare/shared" "2.5.0"
 
+"@netlify/hydrogen-platform@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@netlify/hydrogen-platform/-/hydrogen-platform-1.0.0.tgz#8f843aa4904a65cb81e42a4ffdfa6738a5204423"
+  integrity sha512-vQjkQ0wXO26j83Sf4kD7qrEhGcpLKh5sXtpKlW+TKi4Gz13a2HjUiY/Rm8G6EjmqfuUR39gK6BKZl+W6oj5JKg==
+  dependencies:
+    "@netlify/vite-plugin-netlify-edge" "^1.1.0"
+    magic-string "^0.26.1"
+
+"@netlify/vite-plugin-netlify-edge@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@netlify/vite-plugin-netlify-edge/-/vite-plugin-netlify-edge-1.1.0.tgz#7ef56bad3bf14b133d493735c07e5f5e5f2573fe"
+  integrity sha512-Z99j8uVW1pD/Ye9Bfm9r3wMQsvWkyuh1w/G721L7oKg4aaut6onWIxelu4N/uVM9qFFtZ2u+xWWJEdOcr5iiOA==
+  dependencies:
+    fast-glob "^3.2.11"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
