@@ -1,4 +1,4 @@
-import sanityClient from 'picosanity';
+import PicoSanity from 'picosanity';
 import type {HydrogenRequest} from '@shopify/hydrogen';
 import groq from 'groq';
 import sanityConfig from '../../sanity.config';
@@ -16,11 +16,13 @@ type SanityPayload = {
   products: SitemapPage[];
 };
 
-const client = new sanityClient(sanityConfig);
+const sanityClient = new PicoSanity(sanityConfig);
 
 export async function api(request: HydrogenRequest) {
   const baseUrl = new URL(request.url).origin;
-  const sanityData = await client.fetch<SanityPayload>(QUERY_SANITY, {baseUrl});
+  const sanityData = await sanityClient.fetch<SanityPayload>(QUERY_SANITY, {
+    baseUrl,
+  });
 
   return new Response(shopSitemap(sanityData, baseUrl), {
     headers: {

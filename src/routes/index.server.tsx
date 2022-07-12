@@ -1,7 +1,6 @@
 import {
   Seo,
   ShopifyAnalyticsConstants,
-  HydrogenRouteProps,
   useServerAnalytics,
 } from '@shopify/hydrogen';
 import clsx from 'clsx';
