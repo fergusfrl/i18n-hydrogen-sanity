@@ -22,8 +22,12 @@ function App({request}: HydrogenRouteProps) {
   const localeMatch = /^\/([a-z]{2})(\/|$)/i.exec(pathname);
   const countryCode = localeMatch ? (localeMatch[1] as CountryCode) : undefined;
 
-  // get ip
-  console.log('REQUEST:', request['x-nf-geo']);
+  const clientCountryCode = request;
+  console.log('REQUEST:', clientCountryCode);
+
+  if (countryCode !== clientCountryCode) {
+    // redirect here
+  }
 
   return (
     <Suspense fallback={<LoadingFallback />}>
