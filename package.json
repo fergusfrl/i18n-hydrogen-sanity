@@ -35,7 +35,6 @@
   "dependencies": {
     "@headlessui/react": "^1.6.4",
     "@sanity/block-content-to-react": "^3.0.0",
-    "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
     "@sanity/types": "^2.29.5",
     "@shopify/hydrogen": "~1.0.2",

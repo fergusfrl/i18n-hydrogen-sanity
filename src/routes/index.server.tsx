@@ -14,16 +14,11 @@ import {HOME_PAGE} from '../fragments/sanity/pages/home';
 import useSanityQuery from '../hooks/useSanityQuery';
 import type {SanityHomePage} from '../types';
 
-export default function IndexRoute({request, response}: HydrogenRouteProps) {
-  // console.log('REQUEST:', request);
-  // console.log('RESPONSE:', response);
-
+export default function IndexRoute() {
   const {data: sanityHome} = useSanityQuery<SanityHomePage>({
     hydrogenQueryOptions: {preload: true},
     query: QUERY_SANITY,
   });
-
-  console.log('HOME_DATA:', sanityHome);
 
   // Shopify analytics
   useServerAnalytics({

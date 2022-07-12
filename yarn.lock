@@ -641,7 +641,7 @@
     "@sanity/block-content-to-hyperscript" "^3.0.0"
     prop-types "^15.6.2"
 
-"@sanity/client@^3.2.0", "@sanity/client@^3.3.2":
+"@sanity/client@^3.2.0":
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/@sanity/client/-/client-3.3.2.tgz#54d892664ee492c894b73e6f85bcf7054d6b281c"
   integrity sha512-M89v/KcNob0tnoMCW2caSnwYhSSqO1j5XuDXCloe966ZRFUAZWe9EVyyvvP7x1vPff5xR9PKxidrcx95l221mg==
