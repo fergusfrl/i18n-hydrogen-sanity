@@ -17,16 +17,27 @@ import LoadingFallback from './components/global/LoadingFallback';
 import NotFound from './components/global/NotFound.server';
 import {DEFAULT_ISO_CODE} from './constants';
 
-function App({request}: HydrogenRouteProps) {
+function App({
+  request,
+  response,
+  country = {isoCode: 'US'},
+}: HydrogenRouteProps) {
   const pathname = new URL(request.normalizedUrl).pathname;
   const localeMatch = /^\/([a-z]{2})(\/|$)/i.exec(pathname);
   const countryCode = localeMatch ? (localeMatch[1] as CountryCode) : undefined;
 
-  const clientCountryCode = request?.headers.get('x-nf-geo');
-  console.log('REQUEST:', clientCountryCode);
+  const clientCountryCode = request?.headers.get('x-nf-geo')?.country?.code;
 
-  if (countryCode !== clientCountryCode) {
-    // redirect here
+  console.log(country);
+
+  // TODO: redirect on initial load only.
+  if (clientCountryCode && countryCode != clientCountryCode.toLowerCase()) {
+    response.doNotStream();
+    response.redirect(
+      clientCountryCode !== DEFAULT_ISO_CODE
+        ? `/${clientCountryCode.toLowerCase()}/`
+        : '/',
+    );
   }
 
   return (
