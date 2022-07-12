@@ -1,4 +1,4 @@
-import sanityClient from '@sanity/client';
+import sanityClient from 'picosanity';
 import type {HydrogenRequest} from '@shopify/hydrogen';
 import groq from 'groq';
 import sanityConfig from '../../sanity.config';
@@ -16,7 +16,7 @@ type SanityPayload = {
   products: SitemapPage[];
 };
 
-const client = sanityClient(sanityConfig);
+const client = new sanityClient(sanityConfig);
 
 export async function api(request: HydrogenRequest) {
   const baseUrl = new URL(request.url).origin;
