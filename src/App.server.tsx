@@ -23,7 +23,7 @@ function App({request}: HydrogenRouteProps) {
   const countryCode = localeMatch ? (localeMatch[1] as CountryCode) : undefined;
 
   // get ip
-  console.log('REQUEST:', request);
+  console.log('REQUEST:', request['x-nf-geo']);
 
   return (
     <Suspense fallback={<LoadingFallback />}>
