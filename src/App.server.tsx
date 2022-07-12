@@ -22,7 +22,7 @@ function App({request}: HydrogenRouteProps) {
   const localeMatch = /^\/([a-z]{2})(\/|$)/i.exec(pathname);
   const countryCode = localeMatch ? (localeMatch[1] as CountryCode) : undefined;
 
-  const clientCountryCode = request;
+  const clientCountryCode = request?.headers.get('x-nf-geo');
   console.log('REQUEST:', clientCountryCode);
 
   if (countryCode !== clientCountryCode) {
